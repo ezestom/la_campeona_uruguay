@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+import logo from "../img/logo.png";
+import Card from "../components/Card.astro";
+import img1 from "../img/cordon.jpeg";
+import img2 from "../img/puntacarretas.jpeg";
+---
+
+<Layout title="La Campeona Uruguay.">
+	<header>
+		<article>
+			<h1>Elige la sucursal</h1>
+			<div>
+				<img src={logo.src} alt="logo de la campeona" />
+			</div>
+		</article>
+	</header>
+	<main>
+		<Card
+			title="La Campeona Cordón"
+			address="Constituyente 1892"
+			branch={img1}
+			href="https://lacampeona.uy/menu/lacampeonacordon"
+		/>
+		<Card
+			title="La Campeona"
+			address="Guipúzcoa 420"
+			branch={img2}
+			href="https://lacampeona.uy/menu/lacampeonaptacarretas"
+		/>
+	</main>
+</Layout>
+
+<style>
+	header {
+		background-image: url("../img/empanadas.png");
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+	}
+	article {
+		background: linear-gradient(
+			to right,
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0)
+		);
+		height: 340px;
+		padding: 0 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	article h1 {
+		color: white;
+		font-size: 2rem;
+	}
+	article > div {
+		background-color: white;
+		border-radius: 100%;
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+		width: 224px;
+		height: 224px;
+	}
+	header img {
+		width: 224px;
+		height: 224px;
+		border-radius: 100%;
+		object-fit: contain;
+	}
+	main {
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		flex-wrap: wrap;
+		height: 176px;
+		gap: 5rem;
+		max-width: 95%;
+		margin: 0 auto;
+	}
+	@media (width < 768px) {
+		main {
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			padding-top: 2rem;
+			gap: 2rem;
+		}
+		header article {
+			height: 200px;
+			flex-direction: column;
+		}
+		article > h1 {
+			font-size: 1rem;
+			padding-top: 1rem;
+		}
+		article div {
+			width: 125px;
+			height: 125px;
+			margin-block-end: 1rem;
+		}
+		div img {
+			width: 125px;
+			height: 125px;
+		}
+	}
+</style>
